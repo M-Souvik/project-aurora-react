@@ -11,6 +11,7 @@ import Main from './components/Main'
 import Dashboard from './pages/Dashboard'
 import Events from './pages/Events'
 import News from './pages/News'
+import Authpage from './pages/Auth'
 import { useAuth } from './context/authContext'
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
     
     <Main/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Authpage/>}/>
+      <Route path='/home' element={<Home/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/events' element={<Events/>}/>
       <Route path='/news' element={<News/>}/>

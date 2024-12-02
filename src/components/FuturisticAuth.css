@@ -1,0 +1,64 @@
+.futuristic-auth {
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+  
+  .auth-container {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  
+  .form-switch {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 5px;
+  }
+  
+  .switch-background {
+    position: absolute;
+    top: 5px;
+    width: 50%;
+    height: calc(100% - 10px);
+    background-color: rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: 0.3s ease;
+  }
+  
+  .switch-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: #00ffff;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: 0.3s ease;
+  }
+  
+  .switch-btn.active {
+    color: #ffffff;
+  }
+  
+  

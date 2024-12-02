@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 const Header = () => {
   const { toggleSidebar } = useSidebar()
   return (
-<div className="navbar fixed top-0 left-0 right-0 flex justify-between backdrop-blur-md bg-opacity-40 z-20 px-5 border-b border-blue-400">
+<div className="navbar fixed top-0 left-0 right-0 flex justify-between backdrop-blur-md bg-opacity-40 z-20 px-5 border-b border-blue-400 ">
         <div className='flex gap-2 bg-transparent'>
       
        <label className="btn btn-circle swap swap-rotate bg-transparent border-none hover:bg-transparent">
