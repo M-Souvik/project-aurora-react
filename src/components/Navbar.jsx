@@ -2,6 +2,7 @@ import React from 'react'
 import { useSidebar } from './ui/sidebar'
 import { Button } from './ui/button'
 
+
 const Header = () => {
   const { toggleSidebar } = useSidebar()
   return (
@@ -54,7 +55,7 @@ const Header = () => {
         )} */}
  
   <div className="flex-1">
-  <a href={'/'} className='nabla'>AURORA</a>
+  <a href={'/'} className=''>UCOE</a>
   </div>
 </div>
   {/* <div className="flex-none">
