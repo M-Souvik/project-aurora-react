@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Header from './components/Navbar'
@@ -15,7 +14,7 @@ import Authpage from './pages/Auth'
 import { useAuth } from './context/authContext'
 
 function App() {
- const token=useAuth();
+  const token=useAuth();
   return (
     <SidebarProvider
     style={{
@@ -27,20 +26,22 @@ function App() {
    <Router>
     <div className="flex">
     <Header/>
-    {token && <AppSidebar />}
-    
+    {/* {token && <AppSidebar />} */}
+    <AppSidebar />
     <Main/>
     <Routes>
       <Route path='/' element={<Authpage/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/events' element={<Events/>}/>
+      <Route path='/events/:event' element={<SpecificEvent/>}/>
       <Route path='/news' element={<News/>}/>
     </Routes>
     </div>
     </Router>
     </SidebarProvider>
-  )
+  );
 }
 
-export default App
+export default App;
+
