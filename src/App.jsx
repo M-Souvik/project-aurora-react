@@ -8,10 +8,11 @@ import { SidebarProvider } from './components/ui/sidebar'
 import { AppSidebar } from './components/AppSidebar'
 import Main from './components/Main'
 import Dashboard from './pages/Dashboard'
-import Events from './pages/Events'
+import Events from './pages/events/Events'
 import News from './pages/News'
 import Authpage from './pages/Auth'
 import { useAuth } from './context/authContext'
+import SpecificEvent from './pages/events/[event]'
 
 function App() {
   const token=useAuth();

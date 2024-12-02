@@ -11,7 +11,7 @@ export function Timeline({ events }) {
     return (
       <ul className="timeline timeline-vertical">
         {events.map((event, index) => (
-          <li key={index} className="flex justify-center items-center bg-transparent p-2 text-black">
+          <li key={index} className="flex justify-center items-center bg-transparent p-2 text-white">
             {index !== events.length && (
                 <hr className="bg-blue-300 my-4 w-full absolute z-0 left-1/2 transform -translate-x-1/2" />
             )}
@@ -30,7 +30,7 @@ export function Timeline({ events }) {
                     <TooltipProvider>
                     <Tooltip >
                         <TooltipTrigger><a className="font-bold text-lg hover:underline" href={`events/${event.link}`}>{event.name}</a></TooltipTrigger>
-                        <TooltipContent className="bg-white  text-black rounded-xl">
+                        <TooltipContent className="bg-white  text-white rounded-xl">
                         <p>Tap to know more</p>
                         </TooltipContent>
                     </Tooltip>

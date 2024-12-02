@@ -160,8 +160,8 @@ button:focus-visible {
   font-style: normal;
 }
 body{
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   /* @apply bg-background text-foreground; */
 }
 ::-webkit-scrollbar{

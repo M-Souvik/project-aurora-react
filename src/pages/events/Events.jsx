@@ -1,6 +1,7 @@
 import { GiAcousticMegaphone } from "react-icons/gi";
 import { Timeline } from "../../components/Timeline";
 import { useSidebar } from "@/components/ui/sidebar";
+import HolographicBackground from "@/components/HolographicBackground";
 
 const events = [
   {
@@ -45,8 +46,9 @@ const events = [
 export default function Events() {
   const  {state}=useSidebar();
   return (
-    <div className={`${state==='expanded'?'ml-64':'ml-96'} relative top-16 w-full min-h-screen`}>
-      <div className="container mx-auto  py-2 px-4 md:px-10 w-full">
+    <div className={`${state==='expanded'?'ml-64':'ml-96'} relative top-16 w-full  `}>
+            <HolographicBackground />
+      <div className="container mx-auto  py-2 px-4 md:px-10 w-full mb-20">
         <h1 className="text-4xl font-bold mb-3 nabla text-center flex gap-4 justify-center items-center">
         <GiAcousticMegaphone size={50} color="red" className="-rotate-[30deg] animate-pulse"/>
           Upcoming Events 

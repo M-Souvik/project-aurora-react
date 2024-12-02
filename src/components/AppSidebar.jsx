@@ -42,7 +42,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild >
-                      <a href={`/${item.url}`} className="">
+                      <a href={`/${item.url}`} className="pl-10  text-xl ">
                         <item.icon />
                         <span>{item.title}</span>
                       </a>

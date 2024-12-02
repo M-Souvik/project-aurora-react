@@ -1,6 +1,6 @@
 import React from 'react';
 import { FuturisticAuth } from '../components/FuturisticAuth';
-import './Auth.css';
+import '../components/Auth.css';
 
 function Authpage() {
   return (
