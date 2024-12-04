@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Nabla&family=Oxanium:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&family=Nabla:EDPT,EHLT@115,24&family=Oxanium:wght@200..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&family=Nabla:EDPT,EHLT@115,24&family=Oxanium:wght@200..800&family=Revalia&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -181,3 +181,23 @@ body{
   font-weight: 400;
   font-style: normal;
 }
+.revalia {
+  font-family: "Revalia", sans-serif;
+  font-style: normal;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-animation {
+  animation: float 3s ease-in-out infinite;
+}
+

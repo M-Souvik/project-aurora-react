@@ -34,9 +34,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
         },
       ]
     return (
-        <Sidebar>
-        <SidebarContent >
-          <SidebarGroup className="top-16">
+        <Sidebar className="backdrop-blur-xl md:backdrop-blur-sm">
+        <SidebarContent className="">
+          <SidebarGroup className="sm:top-16 py-10">
             <SidebarGroupContent >
               <SidebarMenu >
                 {items.map((item) => (
@@ -57,7 +57,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
           <SidebarMenu>
             <SidebarMenuItem>
               <DropdownMenu >
-                <DropdownMenuTrigger asChild className="bg-transparent">
+                <DropdownMenuTrigger asChild className="bg-base-100">
                   <SidebarMenuButton>
                     <User2 /> Username
                     <ChevronUp className="ml-auto" />

@@ -6,31 +6,37 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import Modal from '@/components/Modal'
-
-// Set up the localizer for Big Calendar
+import { motion } from "motion/react"
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { columns } from './data/columns'
+import { DataTable } from '@/components/DataTable'
 const localizer = momentLocalizer(moment)
 
 const events = [
   {
-    name: "Sports",
+    name: "Sports Events",
     subEvents: [
       {
-        name: "Hackathon",
-        type: "Tech",
-        start: new Date(2023, 8, 15), // Note: Month is 0-indexed
+        name: "Cricket",
+        type: "Sport",
+        start: new Date(2023, 8, 15),
+        link: 'cricket', // Note: Month is 0-indexed
         end: new Date(2023, 8, 16),
         description: "24-hour coding competition"
       },
       {
-        name: "Robo Wars",
-        type: "Tech",
+        name: "Tug of war",
+        type: "Sport",
+        link: 'tug-of-war',
         start: new Date(2023, 8, 16),
         end: new Date(2023, 8, 17),
         description: "Robot fighting competition"
       },
       {
-        name: "Tech Quiz",
-        type: "Tech",
+        name: "Kabbadi",
+        type: "Sport",
+        link: 'kabbadi',
         start: new Date(2023, 8, 17),
         end: new Date(2023, 8, 18),
         description: "Quiz on latest technology trends"
@@ -38,11 +44,12 @@ const events = [
     ]
   },
   {
-    name: "Cultural",
+    name: "Cultural Events",
     subEvents: [
       {
         name: "Battle of Bands",
         type: "Cultural",
+        link: 'battle-of-bands',
         start: new Date(2023, 9, 20),
         end: new Date(2023, 9, 21),
         description: "Music band competition"
@@ -50,6 +57,7 @@ const events = [
       {
         name: "Street Play",
         type: "Cultural",
+        link: 'street-play',
         start: new Date(2023, 9, 21),
         end: new Date(2023, 9, 22),
         description: "Street theater competition"
@@ -57,12 +65,30 @@ const events = [
       {
         name: "Fashion Show",
         type: "Cultural",
+        link: 'fashion-show',
         start: new Date(2023, 9, 22),
         end: new Date(2023, 9, 23),
         description: "Themed fashion walk"
       }
     ]
   }
+]
+
+const payments = [
+  {
+    id: "728ed52f",
+    name: "FE-A",
+    cricket: "90",
+    volleyball: "100",
+    total:"190"
+  },
+  {
+    id: "489e1d42",
+    name: "FE-B",
+    cricket: "50",
+    volleyball: "30",
+    total: "80"
+  },
 ]
 
 const SpecificEvent = () => {
@@ -77,20 +103,21 @@ const SpecificEvent = () => {
 
   return (
     <>
-      <div className="container mx-auto py-8 min-h-screen px-10 w-full">
-        <div className='relative top-16 uppercase monoton text-red-500 text-center text-5xl px-10 pb-5'>{event}</div>
-        <div className='relative top-16 w-full'>
+      <div className="container md:mx-auto py-8 min-h-screen md:px-10 w-full">
+        <div className='relative top-16'>
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1,transition:{duration: 0.50}}} className=' uppercase monoton text-red-500 text-center text-5xl md:px-10 pb-5'>{event}</motion.div>
+        <motion.div initial={{x:-100 , opacity: 0 }} animate={{x:0, opacity: 1 }}  className=' w-full'>
           <Accordion type="single" collapsible className="space-y-4 w-full">
             {events.map((eventCategory, index) => (
               <div className='flex flex-grow w-full' key={index}>
                 <AccordionItem className="w-full" value={`item-${index}`}>
-                  <AccordionTrigger className="text-xl font-semibold grow w-[19rem] md:w-[36rem] lg:w-[70rem] border-2 border-gray-500 rounded-xl px-2 border-b-none">
+                  <AccordionTrigger className="text-xl font-semibold grow w-[19rem] md:w-[36rem] lg:w-[70rem] rounded-xl px-2 border-b-none">
                     {eventCategory.name}
                   </AccordionTrigger>
                   <AccordionContent className="w-full flex flex-col">
-                    <Card className="mt-2 rounded-xl">
-                      <CardContent>
-                        <h3 className="text-lg font-semibold my-2">Sub Events</h3>
+                    <Card className="mt-2 rounded-xl bg-center bg-cover ">
+                      <CardContent className="  m-2 rounded-xl backdrop-blur-sm">
+                        <motion.h3 className="text-lg font-semibold my-2">Sub Events</motion.h3>
                         {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-4">
                           {eventCategory.subEvents.map((subEvent, subIndex) => (
                             <Card 
@@ -108,7 +135,8 @@ const SpecificEvent = () => {
                             </Card>
                           ))}
                         </div> */}
-                        <div className="h-[400px]">
+                        <motion.div initial={{x:-100 , opacity: 0 }} whileInView={{x:0, opacity: 1 }} className="h-[400px] "
+                        >
                           <Calendar
                             localizer={localizer}
                             events={eventCategory.subEvents}
@@ -120,7 +148,7 @@ const SpecificEvent = () => {
                             defaultDate={eventCategory.subEvents[0].start}
                             onSelectEvent={handleEventClick}
                           />
-                        </div>
+                        </motion.div>
                       </CardContent>
                     </Card>
                   </AccordionContent>
@@ -128,31 +156,27 @@ const SpecificEvent = () => {
               </div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
+        <Separator className="my-4"/>
+            <motion.div initial={{x:-100 , opacity: 0}} animate={{x:0, opacity: 1 }} transition={{
+                delay: 0.1
+            }} className='mt-12'>
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="">View Score</AccordionTrigger>
+                <AccordionContent>
+                <div className="w-[12rem] md:w-full">
+                <DataTable columns={columns} data={payments} />
+                    </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+            </motion.div>
+            </div>
       </div>
 
       {selectedEvent && (
-        <dialog id="my_modal_1" className={`modal bg-white ${isOpen ? 'modal-open' : ''}`}>
-          <div className="modal-box bg-white">
-            <form method="dialog">
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsOpen(false)}>✕</button>
-            </form>
-            <Card className="rounded-xl border-none">
-              <CardHeader>
-                <CardTitle>{selectedEvent.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p><strong>Date:</strong> {moment(selectedEvent.start).format('YYYY-MM-DD')}</p>
-                <p>{selectedEvent.description}</p>
-              </CardContent>
-            </Card>
-            <div className="flex justify-end mt-4">
-              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                Register
-              </button>
-            </div>
-          </div>
-        </dialog>
+        <Modal isOpen={isOpen} event={event} setIsOpen={setIsOpen} name={selectedEvent.name} description={selectedEvent.description} start={moment(selectedEvent.start).format('DD-MM-YYYY')} link={selectedEvent.link}/>
       )}
     </>
   )

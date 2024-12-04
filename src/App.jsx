@@ -13,6 +13,8 @@ import News from './pages/News'
 import Authpage from './pages/Auth'
 import { useAuth } from './context/authContext'
 import SpecificEvent from './pages/events/[event]'
+import Details from './pages/events/Details'
+import Register from './pages/events/Register'
 
 function App() {
   const token=useAuth();
@@ -36,6 +38,8 @@ function App() {
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/events' element={<Events/>}/>
       <Route path='/events/:event' element={<SpecificEvent/>}/>
+      <Route path='/events/details/:subevent' element={<Details/>}/>
+      <Route path='/events/register/:subevent' element={<Register/>}/>
       <Route path='/news' element={<News/>}/>
     </Routes>
     </div>
